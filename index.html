@@ -5,22 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project.D</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.png">
+    <link rel="icon" type="image/x-icon" href="file:///Users/jmatthews/Documents/images/favicon.png">
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Goldman&family=Libre+Barcode+39&family=Silkscreen&display=swap');
-
+@font-face {
+  font-family: "libre barcode 39";
+  src: url("/fonts/Libre.ttf");
+}
+@font-face {
+  font-family: "silkscreen";
+  src: url("/fonts/Silkscreen.ttf");
+}@font-face {
+  font-family: "goldman";
+  src: url("/fonts/Goldman.ttf");
+}
 :root{
   --hback: #347930;
   --mback: #1c261c;
   --hfont: #e1e1e1;
   --mfont: #6e7a6e;
+  --full: linear-gradient(var(--mfont) 90%,var(--mback)10%);
+  --line: linear-gradient(var(--mback) 90%,var(--mfont)10%);
+  --none: linear-gradient(var(--mback) 100%,var(--mfont)0%);
+
+}
+@keyframes flicker {
+  0%{background-image: none;background-color: black;}
+  5%{background-image: var(--line);background-color: var(--mback);}
+  10%{background-image: var(--none);}
+  15%{background-image: var(--line);}  
+  20%{background-image: var(--none);}
+
+  37%{background-image: var(--full);}
+  45%{background-image: var(--none);}
+  65%{background-image: var(--full);}
+  82%{background-image: var(--line);}
+  97%{background-image: var(--none);}
+  100%{background-image: var(--none);}
 }
 body{
   font-family: monospace;
   background-image: linear-gradient(var(--mback) 90%,var(--mfont)10%);
-
+  background-color: var(--mback);
   background-repeat: repeat;
   background-size: 100vmax 1vmax;
+  animation-name: flicker;
+  animation-delay: 1s;
+  animation-fill-mode: backwards;
+  animation-duration: 3s;
+  animation-timing-function:steps(1);
 }
 .drg {
   position: absolute;
@@ -33,6 +65,7 @@ body{
   max-width: 700px;
   box-shadow: 10px 10px 8px var(--mback);
   padding-bottom: 20px;
+  display: none;
 }
 .drg p{
   padding: 1px 5px;
@@ -132,7 +165,7 @@ body{
   <!-- Members Window -->
     <div id="people" class="drg">
       <div id="peoplehead" class="head">Top Members</div>
-      <p>Updated 06/09/22</p>
+      <p>Updated DD/MM/YY</p>
       <dl style="margin-left: 10px;">
 
           <dt>D|Ryosuke</dt><dd>GL 12, Lvl 59</dd>
@@ -144,7 +177,6 @@ body{
 
 
       </dl>
-        <p>Two seats are open. Come claim your chance to be the next in the top 5!
       </div>
   <!-- Welcome window with header, main logo, and ID -->
     <div id="welcome" class="drg" >
@@ -156,17 +188,33 @@ body{
   <!-- Bio pic of the club -->
       <div id="info1" class="drg">
       <div id="info1head" class="head">What is Project.D?</div>
-      <p>Project.D is an upstart, Initial-D-inspired iOS/MacOS team intent on bringing glory to its members and gaining recognition for the team.</p>
+      <p>Project.D is an upstart, Initial-D-inspired team intent on bringing glory to its members and gaining recognition for the team.</p>
       </div>
 
 </body>
 <script>
+
+setTimeout(loadWindows, 5000);
+
+function loadWindows(){
+i=0
+array = document.getElementsByClassName("drg");
+console.log(array);
+i = 0
+yvar = setInterval(loadIn,200);
+      function loadIn (){
+        if (i == array.length-1){clearInterval(yvar)}
+        console.log(array, array[i]);
+        array[i].style.display="block";
+        dragElement(document.getElementById(array[i].id));
+        i+=1
+      }
+  }
+
 // Make the DIV elements draggable:
-for (let i = 0; i < document.getElementsByClassName("drg").length; i++) {
-  array = document.getElementsByClassName("drg")
-  dragElement(document.getElementById(array[i].id));
-  
-}
+
+
+
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "head")) {
