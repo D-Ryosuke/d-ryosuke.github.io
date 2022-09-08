@@ -21,13 +21,11 @@
         
         
         
-        
-        
-        
-        
-        
-        
-        
+     
+
+
+
+
 
 
 
@@ -189,8 +187,14 @@ body{
   display: block;
 }
 
-#tlkio{
-  /* color: red; */
+#tlki{
+  top: 50vh;
+  width: 40vw;
+  height: fit-content;
+}
+a{
+  color: var(--mfont);
+  padding: 5px;
 }
 
 @media screen and (min-width: 900px) {
@@ -240,8 +244,9 @@ body{
     </div>
   <!-- Chat window -->
 
-  <div id="tlkio" class="drg" data-channel="asphalt-d" data-custom-css="https://d-ryosuke.github.io/body.css" style="">  
-    <div id="tlkiohead" class="head">asphalt-d</div>
+  <div id="tlki" class="drg" data-channel="asphalt-d" data-nickname="nick" data-custom-css="https://d-ryosuke.github.io/body.css" style="">  
+    <div id="tlkihead" class="head">asphalt-d</div>
+    <a id="tlklink" href="" target="_blank">tlk.io/embed</a>
   </div>
   <!-- Members Window -->
     <div id="people" class="drg">
@@ -376,6 +381,8 @@ for (i = 0; i < toggler.length; i++) {
 
 </script>
 <script type="text/javascript">
+  var nick = "nicko"
+  document.getElementById("tlklink").setAttribute("href","https://embed.tlk.io/asphalt-d?custom_css_path=https://d-ryosuke.github.io/body.css&nickname="+nick)
 !function(t,e){
   var i=function(){
     var t=e.getElementById("tlkio"),
