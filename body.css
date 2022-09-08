@@ -1,7 +1,46 @@
-a.header-avatar{
-    background:url(https://d-ryosuke.github.io/favicon.png);
-    background-size: contain;
-}
-body.isHero{
-    background-color: darkgreen;
-}
+@font-face {
+    font-family: "libre barcode 39";
+    src: url("fonts/Libre.ttf");
+  }
+  @font-face {
+    font-family: "silkscreen";
+    src: url("fonts/Silkscreen.ttf");
+  }@font-face {
+    font-family: "goldman";
+    src: url("fonts/Goldman.ttf");
+  }
+  
+  :root{
+    --mback: #1c261c;
+    --hback: #1f8200;
+  
+    --hfont: #e1e1e1;
+    --mfont: #6e7a6e;
+    --full: linear-gradient(var(--mfont) 90%,var(--mback)10%);
+    --line: linear-gradient(var(--mback) 90%,var(--mfont)10%);
+    --none: linear-gradient(var(--mback) 100%,var(--mfont)0%);
+  
+  }
+  a.header-avatar{
+      display:none;
+  }
+  body{
+      background-color: darkgreen;
+      border:
+  }
+  aside.aside{
+      display:none;
+  }
+  .theme--day .header-bar{
+      width:100vw;
+      border-radius:0;
+      background-color: var(--hback);
+        color: var(--hfont);
+        border-bottom: gray groove 1vw;
+      margin-bottom:20px;
+  }
+  .header-bar span{
+    text-align: left;
+    font-family: silkscreen;
+    margin-left:10px;
+  }
