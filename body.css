@@ -1,4 +1,4 @@
- @font-face {
+@font-face {
     font-family: "libre barcode 39";
     src: url("fonts/Libre.ttf");
   }
@@ -21,16 +21,12 @@
     --none: linear-gradient(var(--mback) 100%,var(--mfont)0%);
   
   }
-  a.header-avatar{
-      display:none;
-  }
+
   body{
       background-color: var(--mback);
  
   }
-  aside.aside{
-      display:none;
-  }
+
   .theme--day .header-bar{
       width:100vw;
       border-radius:0;
@@ -49,12 +45,84 @@
   font-family:monospace;
   font-size:1em;
 }
-.message-input{
+.message-input,.message-input:hover,.message-input:focus{
   border-radius:0;
   border:5px gray groove;
   margin-bottom:10px;
 }
-.message-input:hover{
-  border:5px gray groove;
+
   
+
+.post.me{
+  background-color:var(--mfont);
+  border:none;
+  border-radius:0;
+  font-family:monospace;
+/*   padding:20px; */
+}
+.post-message{
+  color:var(--mback) !important;
+}
+.post-name{
+  font-weight:bold;
+  background-color:var(--mback);
+  color :var(--mfont);
+  padding:0;
+  left:50px;
+  top:4px;
+}
+.post.me::before{
+  left:-5px;
+  width:10px;
+  height:10px;
+}
+.post-time-dot{
+  background-color:black;
+  transform:none;
+/*   visibility:hidden; */
+  width:8px;
+  height:0px;
+  margin-top:9px;
+
+}
+.post-time-dot::before{
+  content:"[sent]";
+  width:fit-content;
+  height:18px;
+  margin-top:9px;
+  left:-35px;
+  right:0;
+  top:-15px;
+
+}
+.post-time{
+  height:8px;
+  width:8px;
+  right:10px;
+}
+.post-time-tag{
+  right:-5px;
+  border-radius:0;
+  transition:none;
+  background-color:var(--mfont);
+  border:none;
+  font-size:inherit;
+  color:var(--mback)
+  
+}
+.post-time-tag::after{
+  display:none;
+}
+.footer{
+  height:fit-content;
+}
+.footer-wrapper{
+  padding:0;
+  padding-top:20px;
+}
+
+#panel-counter,#panel-button,#scroll_down,
+.post-reply,aside.aside,a.header-avatar,
+#delete-message{
+  display:none !important;
 }
