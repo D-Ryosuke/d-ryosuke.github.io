@@ -1,3 +1,7 @@
 a.header-avatar{
     background:url(https://d-ryosuke.github.io/favicon.png);
+    background-size: contain;
+}
+body.isHero{
+    background-color: darkgreen;
 }
