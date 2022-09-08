@@ -54,16 +54,20 @@
   
 
 .post{
-  background-color:var(--mfont);
+  background-color:var(--mfont) !important;
   border:none;
   border-radius:0 !important;
   font-family:monospace;
-/*   padding:20px; */
+  padding-top:20px;
+  margin-top:5px;
 }
 .post-message{
   color:var(--mback) !important;
 }
 .post-name{
+  opacity:1;
+  visibility:visible;
+  transform:none;
   font-weight:bold;
   background-color:var(--mback);
   color :var(--mfont);
