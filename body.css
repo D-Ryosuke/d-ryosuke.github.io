@@ -74,6 +74,8 @@
   padding:0;
   left:50px;
   top:4px;
+  position:relative;
+  right:-50px;
 }
 .post::before{
   left:-5px;
@@ -112,7 +114,10 @@
   border:none;
   font-size:inherit;
   color:var(--mback)
-  
+}
+.time{
+  color:var(--mfont);
+  font-family:monospace;
 }
 .post-time-tag::after{
   display:none;
