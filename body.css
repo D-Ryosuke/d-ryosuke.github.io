@@ -121,7 +121,7 @@
   padding-top:20px;
 }
 
-#panel-counter,#panel-button,#scroll_down,
+.header-bar,#panel-counter,#panel-button,#scroll_down,
 .post-reply,aside.aside,a.header-avatar,
 #delete-message{
   display:none !important;
