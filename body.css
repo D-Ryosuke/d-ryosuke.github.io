@@ -1,4 +1,4 @@
-@font-face {
+ @font-face {
     font-family: "libre barcode 39";
     src: url("fonts/Libre.ttf");
   }
@@ -25,8 +25,8 @@
       display:none;
   }
   body{
-      background-color: darkgreen;
-      border:
+      background-color: var(--mback);
+ 
   }
   aside.aside{
       display:none;
@@ -44,3 +44,17 @@
     font-family: silkscreen;
     margin-left:10px;
   }
+.message-input::placeholder,.message-input{
+  color:var(--mfont);
+  font-family:monospace;
+  font-size:1em;
+}
+.message-input{
+  border-radius:0;
+  border:5px gray groove;
+  margin-bottom:10px;
+}
+.message-input:hover{
+  border:5px gray groove;
+  
+}
