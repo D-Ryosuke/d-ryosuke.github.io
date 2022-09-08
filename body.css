@@ -123,6 +123,7 @@
 
 .is-online,.header-bar,#panel-counter,#panel-button,#scroll_down,
 .post-reply,aside.aside,a.header-avatar,
-#delete-message{
+#delete-message,.post-time,.post-time-dot,
+.post-time-dot::before,.post-time-tag{
   display:none !important;
 }
