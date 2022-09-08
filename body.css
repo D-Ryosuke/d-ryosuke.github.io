@@ -23,11 +23,12 @@
   }
   html{
     height:100vh;
-  }
-  body{
       background-image: var(--line);
       background-size:100vw 3vh;
     font-size:1.3em;
+  }
+  body{
+
  
   }
 
