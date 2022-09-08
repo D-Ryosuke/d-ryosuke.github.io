@@ -21,9 +21,13 @@
     --none: linear-gradient(var(--mback) 100%,var(--mfont)0%);
   
   }
-
+  html{
+    height:100vh;
+  }
   body{
-      background-color: var(--mback);
+      background-image: var(--line);
+      background-size:100vw 3vh;
+    font-size:1.3em;
  
   }
 
@@ -49,6 +53,10 @@
   border-radius:0;
   border:5px gray groove;
   margin-bottom:10px;
+  background-color:var(--mback);
+  width:100vw;
+/*   margin:0 auto; */
+/*   margin-left:48px; */
 }
 
   
@@ -59,7 +67,8 @@
   border-radius:0 !important;
   font-family:monospace;
   padding-top:20px;
-  margin-top:5px;
+  margin-top:10px;
+  width:80vw
 }
 .post-message{
   color:var(--mback) !important;
@@ -118,6 +127,14 @@
 .time{
   color:var(--mfont);
   font-family:monospace;
+  background-color:var(--mback);
+  position:relative;
+/*   left:auto; */
+  margin:0 auto;
+  margin-left:39px;
+  margin-top:10px;
+/*   right:auto; */
+  width:80vw
 }
 .post-time-tag::after{
   display:none;
