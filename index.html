@@ -29,6 +29,7 @@
 
 
 
+
 :root{
   --mback: #1c261c;
   --hback: #1f8200;
@@ -146,6 +147,25 @@ body{
   right: 0;
 }
 
+#tlkform,#tlkform::placeholder,#tlkform:focus,#tlkform:hover,#tlkform:focus-visible{
+  border-radius: 0;
+  border:1px gray;
+  background-color: var(--mback);
+  color: var(--mfont);
+  box-sizing: border-box;
+  /* width: 20%; */
+  font-family: monospace;
+  padding: 5px;
+  padding-left: 1px;
+  padding-top: 1px;
+  outline: none;
+  margin: 0px;
+
+}
+#inputdiv{
+  display: none;
+}
+
 /* Remove default bullets */
 
 
@@ -245,8 +265,15 @@ a{
   <!-- Chat window -->
 
   <div id="tlki" class="drg" data-channel="asphalt-d" data-nickname="nick" data-custom-css="https://d-ryosuke.github.io/body.css" style="">  
-    <div id="tlkihead" class="head">asphalt-d</div>
-    <a id="tlklink" href="" target="_blank">tlk.io/embed</a>
+    <div id="tlkihead" class="head">project.d chat</div>
+    <p>&gt;&gt;Accessing Chat!... </p>
+    <a id="tlklink" href="" target="_blank">https://embed.tlk.io/asphalt-d</a>
+    <div id="inputdiv">
+      <p>&gt;&gt;parseErrorFailed: Function "chat_access()" Failed (ln.265)</p>
+      <p>&gt;&gt;consoleOutput: Initializing function "chat_access()"...</p>
+      <input id="tlkform" type="text" placeholder="&gt;&gt;consoleInput:enter_username?:click()" size="39"></input>
+    </div>
+
   </div>
   <!-- Members Window -->
     <div id="people" class="drg">
@@ -299,6 +326,9 @@ a{
 
 </body>
 <script>
+
+
+
 
 setTimeout(loadWindows, 5000);
 
@@ -381,8 +411,30 @@ for (i = 0; i < toggler.length; i++) {
 
 </script>
 <script type="text/javascript">
-  var nick = "nicko"
-  document.getElementById("tlklink").setAttribute("href","https://embed.tlk.io/asphalt-d?custom_css_path=https://d-ryosuke.github.io/body.css&nickname="+nick)
+
+var doc=document;
+if (typeof(sessionStorage.getItem("username"))!="string"){
+  console.log("bing bong no var");
+  var fo = doc.getElementById("inputdiv");
+  var inp = doc.getElementById("tlkform");
+  doc.getElementById("tlklink").style.display="none";
+  fo.style.display="block";
+  inp.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    sessionStorage.setItem("username",fo.value);
+    doc.getElementById("tlklink").style.display="block";
+    fo.style.display="none";
+    console.log(sessionStorage.getItem("username"))
+    var nick = sessionStorage.getItem("username")
+    document.getElementById("tlklink").setAttribute("href","https://embed.tlk.io/asphalt-d?custom_css_path=https://d-ryosuke.github.io/body.css&nickname="+nick)
+  }
+});
+}
+
 !function(t,e){
   var i=function(){
     var t=e.getElementById("tlkio"),
