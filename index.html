@@ -485,7 +485,7 @@ if (typeof(sessionStorage.getItem("username"))!="string"){
     // Cancel the default action, if needed
     event.preventDefault();
     // Trigger the button element with a click
-    sessionStorage.setItem("username",fo.value);
+    sessionStorage.setItem("username",inp.value);
     doc.getElementById("tlklink").style.display="block";
     fo.style.display="none";
     console.log(sessionStorage.getItem("username"))
