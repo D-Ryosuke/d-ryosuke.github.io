@@ -30,6 +30,7 @@
 
 
 
+
 :root{
   --mback: #1c261c;
   --hback: #1f8200;
@@ -146,7 +147,10 @@ body{
   bottom: 0;
   right: 0;
 }
-
+@keyframes flash {
+  from{color: var(--mfont);}
+  to{color: white;}
+}
 #tlkform,#tlkform::placeholder,#tlkform:focus,#tlkform:hover,#tlkform:focus-visible{
   border-radius: 0;
   border:1px gray;
@@ -160,11 +164,15 @@ body{
   padding-top: 1px;
   outline: none;
   margin: 0px;
-  overflow:hidden;
-  text-overflow:ellipsis;
-
+  overflow:hidden ;
+  text-overflow: ellipsis;
+  width: 100%;
+  /* color: var(--mfont); */
+  /* animation: flash 0.5s ease-in-out 0s infinite alternate none ; */
 }
-        #tlkform:focus::placeholder{color:transparent}
+#tlkform:focus::placeholder{
+  color: transparent;
+}
 #inputdiv{
   display: none;
 }
@@ -176,14 +184,14 @@ body{
 .caret {
   cursor: pointer;
   font-weight: bolder;
-  font-size: 0.9em;
+  font-size: 1.2em;
   font-family: silkscreen;
   user-select: none; /* Prevent text selection */
 }
 
 .caret::before {
   content: "[+]\00A0";
-  font-size: 1em;
+  font-size: 1rem;
   color: var(--mfont);
   font-family:'Courier New', monospace;
   display: inline-block;
@@ -195,11 +203,12 @@ body{
 }
 #tips li{
   margin-left: 40px;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 #tips ul{
   padding: 0;
   margin-left: 10px;
+  list-style-type: none;
 }
 
 .nested {
@@ -212,7 +221,7 @@ body{
 
 #tlki{
   top: 50vh;
-  width: 40vw;
+  width: 50vw;
   height: fit-content;
 }
 a{
@@ -221,6 +230,9 @@ a{
 }
 
 @media screen and (min-width: 900px) {
+  body{
+    font-size: 1.2em;
+  }
   .head {
      font-size: 30px;
   }
@@ -274,7 +286,7 @@ a{
     <div id="inputdiv">
       <p>&gt;&gt;parseErrorFailed: Function "chat_access()" Failed (ln.265)</p>
       <p>&gt;&gt;consoleOutput: Initializing function "chat_access()"...</p>
-      <input id="tlkform" type="text" placeholder="&gt;&gt;consoleInput:enter_username?:click()" size="39"></input>
+      <input id="tlkform" type="text" placeholder="&gt;&gt;click(consoleInput):username_enter?:" size="39"></input>
     </div>
 
   </div>
@@ -301,16 +313,59 @@ a{
   <!-- <div id="tips" class="drg">
     <div id="tipshead" class="head">Driving Tips</div>
 
-      <ul class="myUL">
-        <ul><span class="caret">Speed</span>
-          <li class="nested">This is a long paragraph about random content that should be long enough to wrap around the line border,
-            <!-- and, in doing so, provide a test as to how well this system works</li>
-          <li class="nested">alksdjfhakjs</li>
-          
-          </ul> 
-        <ul><span class="caret">Nitro</span>
-          <li class="nested">Water</li></ul>  -->
-      <!-- </ul> -->
+    <ul id="myUL">
+
+
+      <li><span class="caret">Speed</span>
+
+        <ul class="nested">
+          <li>Your speed management is the most important part of your driving skills. The idea is to make sure that your car is as close to its top
+            speed as possible all of the time. However, you need to take into account the many factors that affect your speed when driving.
+          </li>
+          <li><span class="caret">Ground</span>
+            <ul class="nested"><li>Driving on the ground is fairly straightforward (pun intended). You accelerate fastest in a straight line,
+              until you cap out at a certain speed (your car's listed Top Speed in KMH). Steering (also known as gripping) will decrease your speed, 
+              as your car automatically breaks to avoid sliding out and keep your turn radius, aka turning path/line. Drifting, unlike in real life, 
+              accelerates your car slightly, so it is often a far better option than gripping a corner.
+            </li>
+            <li>An advanced technique that is applicable in some corners is colloquially called "floaty"-ing. A floaty is a 360 into a drift, where the 360
+              is initiated by steering slightly away from the corner, then double-tapping drift, and holding the direction of the corner and drift
+              partway through. This cancels the 360 and initiates a drift at a sharper angle.<br>For example, to take a 90 degree left corner with a
+              floaty, I (playing on keyboard) would tap right, double tap drift, immediately switch to holding left, and then tap drift to snap out of
+              to 360 into the drift (while still holding left). This needs to be started earlier than a regular drift, in order to get an optimal line.
+            </li>
+          </ul>
+          </li>
+
+          <li><span class="caret">Air</span>
+            <ul class="nested"><li>Air speed is higher</li></ul>
+          </li>
+
+
+          <li><span class="caret">Nitro</span>
+            <ul class="nested">
+              <li><span class="caret">Purple Nitro (Shockwave) Wrap</span>
+                <ul class="nested"><li>Air speed is higher</li></ul>
+              </li>
+              <li><span class="caret">Red Nitro (Double-tap)</span>
+                <ul class="nested"><li>Air speed is higher</li></ul>
+              </li>
+              <li><span class="caret">Blue Nitro (Perfect)</span>
+                <ul class="nested"><li>Air speed is higher</li></ul>
+              </li>
+              <li><span class="caret">Yellow Nitro (Single-tap)</span>
+                <ul class="nested"><li>Air speed is higher</li></ul>
+              </li>
+
+            </ul>
+
+          </li>
+        </ul>
+
+      </li>
+
+    </ul> -->
+
 
 
   </div>
@@ -408,6 +463,7 @@ for (i = 0; i < toggler.length; i++) {
   toggler[i].addEventListener("click", function() {
     this.parentElement.querySelector(".nested").classList.toggle("active");
     this.classList.toggle("caret-down");
+    document.getElementById("tips").style.zIndex = "8";
   });
 }
 
