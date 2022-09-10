@@ -59,7 +59,14 @@
 /*   margin:0 auto; */
 /*   margin-left:48px; */
 }
-
+.message-button--submit,.theme--day .button{
+  display:block;
+  border-radius:0;
+  border:none;
+  background-color:var(--mfont);
+  color:var(--mback);
+  margin-top:5px;
+}
   
 
 .post{
